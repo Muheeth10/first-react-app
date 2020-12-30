@@ -1,8 +1,8 @@
 .App{
     text-align: center;
 }
-.blogCard {
-    max-Width:30%;
+.BlogCard {
+    max-Width:300px;
     display:inline-block;
     margin:16px;
     padding:16px;
