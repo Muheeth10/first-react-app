@@ -1,35 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
 
-var blogArr= [{
-  blogHeading:"Heading 1",
-  para:'loro dolar espum loro dolar espum loro dolar espum loro dolar espum '
-},
-{
-  blogHeading:"Heading 2",
-  para:'body of the second card'
-},
-{
-  blogHeading:"Heading 3",
-  para:'body of the third card'
-}
+import Blogitem from './BlogCard'; //functional component
+import { isArrayEmpty } from './Utils'; // Here we have to use the same exact name or alternate is 
+
+// import {isArrayEmpty as isEmpty} from './Utils';
+
+var blogArr= [
+  {
+    blogHeading:"Heading 1",
+    id:1,
+    para:'loro dolar espum loro dolar espum loro dolar espum loro dolar espum '
+  },
+  {
+    id:2,
+    blogHeading:"Heading 2",
+    para:'body of the second card'
+  },
+  {
+    id:3,
+    blogHeading:"Heading 3",
+    para:'body of the third card'
+  }
 ]
 
-const blogCard = blogArr.map((item, pos) => {
-  console.log(item)
-// using the pos for id is the bad practice use the objects or function for the id
+const blogCard = isArrayEmpty(blogArr)?blogArr.map((item, pos) => {
+
   return(
-    
-     <div className="BlogCard" key={pos}>
-       <h3>{item.blogHeading}</h3>
-       <p>{item.para}</p>
-     </div>
+
+    <Blogitem key={pos} text={item.blogHeading} description={item.para} id={item.id}/>
+
 
   );
-})
+}): console.log('Array is empty')
 
-// style are two types inline and external. In inline objects are passed unlike the strings in the in javascript.
-// since style is an object it can be stored in the variable
 
 
 
