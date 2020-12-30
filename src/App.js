@@ -1,33 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
 
+var mObj={
+  blogHeading:"Heading",
+  para:'loro dolar espum loro dolar espum loro dolar espum loro dolar espum '
+}
+
+// style are two types inline and external. In inline objects are passed unlike the strings in the in javascript.
+// since style is an object it can be stored in the variable
+
+const boxstyle = {
+  maxWidth:'30%',
+  display:'inline-block',
+  margin:'16px',
+  padding:'16px',
+  backgroundColor:'lightblue',
+  borderRadius: '5px',
+  boxShadow:'0 2px 5px #ccc'
+}
+
 function App() {
-  var fname="jhon"
-  let lname ="wick"
-  let age = 28
-  let job = "anynomous"
+ return(
+   <div className="App">
+     <div style={boxstyle}>
+       <h3>{mObj.blogHeading}</h3>
+       <p>{mObj.para}</p>
+     </div>
+    
+     <div className="blogCard">
+       <h3>{mObj.blogHeading}</h3>
+       <p>{mObj.para}</p>
+     </div>
+    
+     <div className="blogCard">
+       <h3>{mObj.blogHeading}</h3>
+       <p>{mObj.para}</p>
+     </div>
 
-  const getFullName = (fname,lname) =>` ${fname} ${lname}`
-  
-  const pholder = 'enter your name'
-  const inputBox = <input placeholder={pholder} />
-
-  const arr = [1,2,3,4,5]
-  const ageObj={
-    age1:18,
-    age2:20,
-    age3:25
-  }
-  return (
-    <div className="App">
-      <h3>Full Name: { getFullName(fname,lname)}</h3>
-      <p>Age:{ageObj.age1}</p>
-      <p>Job : {job}</p>
-      {arr[0]}
-      {inputBox}
-    </div>
-
-  );
+   </div>
+ );
 }
 
 export default App;
