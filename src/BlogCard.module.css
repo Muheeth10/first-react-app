@@ -1,0 +1,19 @@
+.BlogCard {
+    max-Width:300px;
+    display:inline-block;
+    margin:16px;
+    padding:16px;
+    background-color:lightblue;
+    border-radius: 5px;
+    box-shadow:0 2px 5px #ccc;
+  }
+
+  /* media query in module */
+
+  @media (min-width:500px){
+      
+    .BlogCard{
+        max-width:28%;
+        background-color: blanchedalmond;
+    }
+  }
