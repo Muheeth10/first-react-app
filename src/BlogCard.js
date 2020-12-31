@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { dumpLags } from './Utils';
 
 import classes from './BlogCard.module.css'; 
@@ -24,28 +24,24 @@ exports are of two types
     props get the data from the parameter passed in the App.js
 */
 
-class BlogCard extends Component {
-    state = {
-        likeCount:0
-    }
-    onLikeBtnClick = () =>{
-        this.setState((prevState,prevProp)=>{
-            return {likeCount : prevState.likeCount +1};
-        })
-    }
-    render(){
-        dumpLags(this.props);
+const BlogCard = (props) => {
+    
+    // onLikeBtnClick = () =>{
+        
+    // }
+   
+        dumpLags(props);
 
         return(
             <div className={classes.BlogCard}>
-                <h3>{this.props.text}</h3>
-                <p>{this.props.description}</p>
+                <h3>{props.text}</h3>
+                <p>{props.description}</p>
 
-                <p>Like Count: {this.state.likeCount}</p>
-                <button onClick={this.onLikeBtnClick}>Like</button>
+                <p>Like Count: {props.likecount}</p>
+                <button onClick={() => props.onLikeButtonClick(props.position)}>Like</button>
             </div>
         )
-    }
+
 }
 
 export default BlogCard;
