@@ -21,30 +21,38 @@ import { isArrayEmpty } from './Utils'; // Here we have to use the same exact na
 
 
 class App extends Component {
-  state ={
-    showblocks:true,
-    blogArr : [
-      {
-        blogHeading:"Heading 1",
-        id:1,
-        likeCount:0,
-        para:'loro dolar espum loro dolar espum loro dolar espum loro dolar espum '
-      },
-      {
-        id:2,
-        likeCount:0,
-        blogHeading:"Heading 2",
-        para:'body of the second card'
-      },
-      {
-        id:3,
-        likeCount:0,
-        blogHeading:"Heading 3",
-        para:'body of the third card'
-      }
-    ]
+
+  constructor(props){
+    super(props);
+    this.state ={
+      showblocks:true,
+      blogArr : [
+        {
+          blogHeading:"Heading 1",
+          id:1,
+          likeCount:0,
+          para:'loro dolar espum loro dolar espum loro dolar espum loro dolar espum '
+        },
+        {
+          id:2,
+          likeCount:0,
+          blogHeading:"Heading 2",
+          para:'body of the second card'
+        },
+        {
+          id:3,
+          likeCount:0,
+          blogHeading:"Heading 3",
+          para:'body of the third card'
+        }
+      ]
+  
+    }
+
+    console.log('Inside Constructor');
 
   }
+  
   //this component has render method in place of the return which is helpful as,render is called every time there is component updated (it is rendered(render method called) by updating the state or adding the new state using setState only) or component created
 
   
@@ -63,10 +71,23 @@ class App extends Component {
     //console.log(updatedBlogObj);
 }
 
-  
-  
+  shouldComponentUpdate(){
+    console.log('Inside ShouldComponentUpdate');
+    return true;
+  }
+  componentDidMount(){
+    console.log('Component Did Mount');
+  }
+  componentWillUnmount(){
+    console.log('Component will Mount');
+  }
+  componentDidUpdate(){
+    console.log('component Did Update');
+  }
 
 render(){
+  console.log('Render called for AppJs');
+
   const blogCard = isArrayEmpty(this.state.blogArr)?this.state.blogArr.map((item, pos) => {
 
   
@@ -99,7 +120,7 @@ render(){
         return {showblocks: !prevState.showblocks}
       })
   
-      console.log(this.state.showblocks)
+     // console.log(this.state.showblocks)
     }
   return(
     <div className="App">

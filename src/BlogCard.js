@@ -24,23 +24,33 @@ exports are of two types
     props get the data from the parameter passed in the App.js
 */
 
-const BlogCard = (props) => {
+class BlogCard extends React.Component {
     
     // onLikeBtnClick = () =>{
         
     // }
    
-        dumpLags(props);
+        //dumpLags(props);
 
-        return(
-            <div className={classes.BlogCard}>
-                <h3>{props.text}</h3>
-                <p>{props.description}</p>
+    componentWillUnmount() {
+        console.log('componentwillunmount');
+    }    
 
-                <p>Like Count: {props.likecount}</p>
-                <button onClick={() => props.onLikeButtonClick(props.position)}>Like</button>
-            </div>
-        )
+render(){
+    
+    console.log('BlogCard renderd');
+
+    return(
+        <div className={classes.BlogCard}>
+            <h3>{this.props.text}</h3>
+            <p>{this.props.description}</p>
+
+            <p>Like Count: {this.props.likecount}</p>
+            <button onClick={() => this.props.onLikeButtonClick(this.props.position)}>Like</button>
+        </div>
+    )
+}
+    
 
 }
 
